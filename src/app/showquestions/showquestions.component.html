@@ -1,0 +1,33 @@
+<h1 style="margin-left: 20px">Question of {{title}}</h1>
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container text-center">
+                <button mat-raised-button color="primary" [routerLink]="'/addQuestion/' + qId">Add Question</button>
+            </div>
+        </div>
+        <div class="col-md-12" style="margin-top: 10px;">
+            <mat-card *ngFor="let q of questions; let i = index">
+                <mat-card-content>
+                    <p>
+                        <b>Q {{ i + 1}}</b>
+                        <span style="margin-left: 20px;" [innerHTML]="q.question"></span>
+                    </p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6" *ngFor="let op of q.options; let j = index">
+                                <p>
+                                    <b>{{j + 1}} )</b> {{op}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <p style="margin-top: 20px;">
+                        <b>Correct Answer: </b>{{q.answer}}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

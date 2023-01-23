@@ -1,0 +1,13 @@
+<mat-card class="mt10" *ngFor="let q of quiz">
+<mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{q.title}}</mat-card-title>
+    <mat-card-subtitle>{{q.discription}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-flat-button color="accent" class="ml20">Question {{q.maxQuestion}}</button>
+    <button mat-flat-button color="accent" style="margin-left: 20px;">Mark {{q.maxMark}}</button>
+    <button mat-flat-button color="accent" style="margin-left: 20px;" [routerLink]="'/showQuestions/'+q.qid+'/'+q.title">Question</button>
+    <button mat-flat-button color="accent" style="margin-left: 20px;" [routerLink]="'/takeQuiz/'+q.qid">Take Quiz</button>
+  </mat-card-actions>
+</mat-card>
