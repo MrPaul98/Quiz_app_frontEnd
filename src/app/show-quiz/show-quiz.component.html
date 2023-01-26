@@ -1,13 +1,25 @@
-<mat-card class="mt10" *ngFor="let q of quiz">
+<div *ngIf="quizData != null">
+<mat-card class="mt10" *ngFor="let q of quizData">
+<mat-card>
 <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{q.title}}</mat-card-title>
-    <mat-card-subtitle>{{q.discription}}</mat-card-subtitle>
+    <mat-card-title>{{q.qtitle}}</mat-card-title>
+    <mat-card-subtitle>{{q.qdescription}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
-    <button mat-flat-button color="accent" class="ml20">Question {{q.maxQuestion}}</button>
-    <button mat-flat-button color="accent" style="margin-left: 20px;">Mark {{q.maxMark}}</button>
-    <button mat-flat-button color="accent" style="margin-left: 20px;" [routerLink]="'/showQuestions/'+q.qid+'/'+q.title">Question</button>
-    <button mat-flat-button color="accent" style="margin-left: 20px;" [routerLink]="'/takeQuiz/'+q.qid">Take Quiz</button>
+    <button mat-flat-button color="accent" class="ml20">Question {{q.qqno}}</button>
+    <button mat-flat-button color="accent" style="margin-left: 20px;">Mark {{q.qmark}}</button>
+    <button mat-flat-button color="accent" style="margin-left: 20px;" [routerLink]="'/showQuestions/'+q.id+'/'+q.qtitle">Question</button>
+    <button mat-flat-button color="accent" style="margin-left: 20px;" [routerLink]="'/takeQuiz/'+q.id">Take Quiz</button>
+    <button mat-flat-button color="accent" style="margin-left: 20px;" (click)="deleteQuiz(q.id)">Delete Quiz</button>
   </mat-card-actions>
 </mat-card>
+</mat-card>
+</div>
+<mat-card class="mt10"  *ngIf="showerror">
+  <mat-card-header>
+      <div mat-card-avatar class="example-header-image-notfound"></div>
+      <mat-card-title>No quiz found</mat-card-title>
+      <mat-card-subtitle>Please create some quiz.</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>

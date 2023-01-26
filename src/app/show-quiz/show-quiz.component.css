@@ -1,5 +1,9 @@
 .example-header-image{
-    background-image: url("https://www.pngmart.com/files/7/Exam-PNG-Transparent-Image.png");
+    background-image: url("src\assets\Exam.png");
+    background-size: cover;
+}
+.example-header-image-notfound{
+    background-image: url("src\assets\NotFound.png");
     background-size: cover;
 }
   

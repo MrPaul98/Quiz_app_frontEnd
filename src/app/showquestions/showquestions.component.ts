@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { QuizService } from '../service/quiz.service';
 
 @Component({
   selector: 'app-showquestions',
@@ -9,19 +10,23 @@ import { ActivatedRoute } from '@angular/router';
 export class ShowquestionsComponent implements OnInit {
 qId: string | undefined;
 title: string | undefined;
-questions = [
-  {
-    id: 1,
-    question: 'What is your name ?',
-    options: ['a','b','c','d'],
-    answer: 'Paul'
-  }
-];
-  constructor(private _route: ActivatedRoute) { }
+questions:any;
+  constructor(private _route: ActivatedRoute, private service:QuizService) { }
 
   ngOnInit(): void {
     this.qId = this._route.snapshot.params['id'];
     this.title = this._route.snapshot.params['title'];
+    this.getAllQuestion();
   }
 
+  getAllQuestion(){
+    this.service.getQuestion(this.qId).subscribe(
+      (response:any)=>{
+        this.questions = response.object;
+      },
+      (error:any) =>{
+
+      }
+    );
+  }
 }

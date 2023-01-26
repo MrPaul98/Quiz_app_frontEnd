@@ -6,29 +6,29 @@
                 <form>
                     <mat-form-field class="w100" appearance="outline">
                         <mat-label>Enter Title</mat-label>                      
-                        <input type="text" name="title" placeholder="Enter Here" matInput/>
+                        <input type="text" name="qTitle" [(ngModel)]="quizData.qtitle" placeholder="Enter Here" matInput/>
                     </mat-form-field>
                     <mat-form-field class="w100" appearance="outline">
                         <mat-label>Enter Description</mat-label>                      
-                        <textarea type="text" name="description" rows="2" placeholder="Enter Here" matInput></textarea>
+                        <textarea type="text" name="description" [(ngModel)]="quizData.qdescription" rows="2" placeholder="Enter Here" matInput></textarea>
                     </mat-form-field>
                     <div class="row">
                         <div class="col-md-6">   
                             <mat-form-field class="w100" appearance="outline">
                                 <mat-label>Maxmium Mark</mat-label>                      
-                                <input type="text" name="mxMark" placeholder="Enter Here" matInput/>
+                                <input type="number" name="mxMark" [(ngModel)]="quizData.qmark" placeholder="Enter Here" matInput/>
                             </mat-form-field>           
                         </div>
                         <div class="col-md-6">
                             <mat-form-field class="w100" appearance="outline">
                                 <mat-label>Number of Question</mat-label>                      
-                                <input type="text" name="noQuestion" placeholder="Enter Here" matInput/>
+                                <input type="number" name="noQuestion" [(ngModel)]="quizData.qqno" placeholder="Enter Here" matInput/>
                             </mat-form-field>
                         </div>
                     </div>
                 </form>
                 <div class="container text-center">
-                    <button mat-raised-button color="accent">Add Quiz</button>
+                    <button mat-raised-button color="accent" (click)="createQuiz()">Add Quiz</button>
                 </div>
             </div>
         </div>

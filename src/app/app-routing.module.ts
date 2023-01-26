@@ -8,6 +8,11 @@ import { TakequizComponent } from './takequiz/takequiz.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'showQuiz',
+    pathMatch: 'full'
+  },
+  {
     path: 'createQuiz',
     component: AddQuizComponent,
     pathMatch: 'full',
@@ -22,7 +27,7 @@ const routes: Routes = [
     component: ShowquestionsComponent,
   },
   {
-    path: 'addQuestion/:id',
+    path: 'addQuestion/:id/:title',
     component: AddQuestionComponent
   },
   {

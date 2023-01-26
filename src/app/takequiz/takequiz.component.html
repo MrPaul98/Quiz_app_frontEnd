@@ -4,22 +4,14 @@
             <div class="col-md-12">
                 <mat-card>
                     <div class="container" >
-                        <button mat-raised-button color="accent" style="float: right;">Show Answer</button>
-                        <button mat-raised-button color="accent" style="float: right;margin-right: 10px;">Next Question</button>
+                        <button mat-raised-button color="accent" style="float: right;" (click)="showAnswer()">Show Answer</button>
+                        <button mat-raised-button color="accent" style="float: right;margin-right: 10px;" (click)="changeQuestion('n')">Next Question</button>
+                        <button mat-raised-button color="accent" style="float: right;margin-right: 10px;" (click)="changeQuestion('p')">prev Question</button>
                 </div>
                 <mat-card-header>
                         <mat-card-subtitle>
                         <h1><b>
-                            Elon Reeve Musk FRS (/ˈiːlɒn/ EE-lon; born June 28, 1971) 
-                            is a business magnate and investor. He is the founder, CEO and
-                             chief engineer of SpaceX; angel investor, CEO and product architect
-                              of Tesla, Inc.; owner and CEO of Twitter, Inc.; founder of 
-                              The Boring Company; co-founder of Neuralink and OpenAI; and 
-                              president of the philanthropic Musk Foundation. With an estimated 
-                              net worth of around $139 billion as of December 23, 2022, primarily 
-                              from his ownership stakes in Tesla and SpaceX,[4][5] Musk is the 
-                              second-wealthiest person in the world, according to both the Bloomberg
-                               Billionaires Index and Forbes's real-time billionaires list.[6][7]
+                            {{index + 1}} ) {{question.content}}
                         </b></h1> 
                     </mat-card-subtitle>
                     </mat-card-header>
@@ -27,10 +19,10 @@
                         <div class="row">
                                 <div class="col-md-8">
                                     <mat-chip-list>
-                                        <mat-chip [style]="{'background-color': (flag) ? 'green' : '#3F51B5','color': 'aliceblue'}">One fishfibjdofibjdfoib</mat-chip>
-                                        <mat-chip [style]="{'background-color': (!flag) ? '#2E7D32' : '#3F51B5','color': 'aliceblue'}">One fishfibjdofibjdfoib</mat-chip>
-                                        <mat-chip [style]="{'background-color': (flag) ? 'green' : '#3F51B5','color': 'aliceblue'}">One fishfibjdofibjdfoib</mat-chip>
-                                        <mat-chip [style]="{'background-color': (flag) ? 'green' : '#3F51B5','color': 'aliceblue'}">One fishfibjdofibjdfoib</mat-chip>
+                                        <mat-chip *ngIf="question.option1" [style]="{'background-color': (flag1) ? '#2E7D32' : '#3F51B5','color': 'aliceblue'}">{{question.option1}}</mat-chip>
+                                        <mat-chip *ngIf="question.option2" [style]="{'background-color': (flag2) ? '#2E7D32' : '#3F51B5','color': 'aliceblue'}">{{question.option2}}</mat-chip>
+                                        <mat-chip *ngIf="question.option3" [style]="{'background-color': (flag3) ? '#2E7D32' : '#3F51B5','color': 'aliceblue'}">{{question.option3}}</mat-chip>
+                                        <mat-chip *ngIf="question.option4" [style]="{'background-color': (flag4) ? '#2E7D32' : '#3F51B5','color': 'aliceblue'}">{{question.option4}}</mat-chip>
                                     </mat-chip-list>
                                 </div>
                         </div>

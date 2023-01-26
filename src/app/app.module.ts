@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { TakequizComponent } from './takequiz/takequiz.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     TakequizComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -48,9 +52,11 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatIconModule,
     MatSelectModule,
     MatChipsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
